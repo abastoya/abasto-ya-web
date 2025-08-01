@@ -463,7 +463,138 @@ footer .container {
         gap: 50px;
     }
 }
+/* --- NUEVAS REGLAS PARA TELÉFONOS MÓVILES (max-width: 767px) --- */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px; /* Menos padding lateral para aprovechar el espacio en móvil */
+    }
 
+    /* Header */
+    header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .logo {
+        max-width: 120px; /* Logo un poco más pequeño en móvil */
+        margin-bottom: 5px;
+    }
+    header h1 {
+        font-size: 2.2em; /* Título h1 más pequeño para móvil */
+    }
+
+    /* Navegación */
+    nav ul {
+        flex-direction: column; /* Apilar elementos del menú verticalmente */
+        gap: 10px; /* Menos espacio entre ítems de menú apilados */
+    }
+    nav ul li a {
+        font-size: 1em; /* Texto del menú ajustado */
+        padding: 8px 0; /* Más padding para que sean más fáciles de tocar */
+    }
+    nav ul li a::after { /* Ajuste de subrayado */
+        bottom: -2px;
+        height: 2px;
+    }
+
+
+    /* Hero Banner */
+    .hero-banner {
+        padding: 50px 15px; /* Menos padding en móvil */
+        margin-bottom: 30px;
+        border-radius: 0 0 20px 20px; /* Bordes más pequeños */
+    }
+    .banner-text h2 {
+        font-size: 32px; /* Título h2 más pequeño en móvil */
+        margin-bottom: 15px;
+    }
+    .banner-text p {
+        font-size: 16px; /* Párrafo más pequeño en móvil */
+        margin-bottom: 25px;
+    }
+    .btn-whatsapp {
+        padding: 12px 25px; /* Botón más pequeño */
+        font-size: 1em;
+    }
+    .btn-whatsapp i {
+        font-size: 1.1em;
+    }
+    .banner-grid {
+        flex-direction: column; /* Apila el texto y la imagen verticalmente en móvil */
+        gap: 30px;
+    }
+    .banner-image {
+        order: -1; /* Opcional: para que la imagen aparezca antes que el texto en móvil */
+        text-align: center;
+    }
+
+
+    /* Info Section */
+    .info {
+        padding: 40px 15px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+    }
+    .info h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    .steps-grid {
+        grid-template-columns: 1fr; /* Asegura una sola columna para los pasos */
+        gap: 25px;
+    }
+    .step-item {
+        padding: 25px;
+        border-radius: 10px;
+    }
+    .step-item i {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+    .step-item h3 {
+        font-size: 22px;
+    }
+    .step-item p {
+        font-size: 17px;
+    }
+
+
+    /* Products Showcase Section */
+    .products-showcase {
+        padding: 40px 15px;
+        margin-bottom: 30px;
+    }
+    .products-showcase h2 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Asegura una sola columna para los productos */
+        gap: 25px;
+    }
+    .product-item {
+        padding: 25px;
+        border-radius: 10px;
+    }
+    .product-item h3 {
+        font-size: 22px;
+    }
+    .product-item p {
+        font-size: 17px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 15px;
+        font-size: 0.8em;
+    }
+    .social-links {
+        gap: 15px;
+    }
+    .social-links a {
+        font-size: 1.8em;
+    }
+}
 /* --- ANIMACIONES (CSS Keyframes) --- */
 
 @keyframes infoGradient {
