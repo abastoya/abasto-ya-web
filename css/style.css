@@ -1,0 +1,413 @@
+/* COLORES CORPORATIVOS */
+:root {
+    --verde-esmeralda: #009975;
+    --cornalina: #F05A28;
+    --jaspe: #B32428;
+    --blanco: #ffffff;
+    --gris-suave: #f4f4f4;
+    --gris-oscuro: #333;
+    --sombra-suave: rgba(0, 0, 0, 0.1);
+    --sombra-media: rgba(0, 0, 0, 0.15);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--gris-suave);
+    color: var(--gris-oscuro);
+    line-height: 1.7; /* Ligeramente más espacio entre líneas */
+}
+
+.container {
+    max-width: 1100px; /* Aumentamos un poco el ancho máximo */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--verde-esmeralda);
+    color: var(--blanco);
+    text-align: center;
+    padding-top: 20px; /* Ajuste para el padding superior del logo */
+    box-shadow: 0 4px 8px var(--sombra-suave);
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px; /* Espacio antes de la navegación */
+}
+
+.logo {
+    max-width: 140px; /* Aumentamos el tamaño del logo */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px var(--sombra-media); /* Sombra más pronunciada para el logo */
+    animation: bounceIn 1s ease-out; /* Animación de entrada */
+    transition: transform 0.3s ease-out; /* Transición suave para la transformación */
+}
+
+.logo:hover {
+    transform: scale(1.08); /* Agrandar un 8% al pasar el mouse */
+}
+
+header h1 {
+    font-size: 3em; /* Título principal más grande */
+    margin-bottom: 0; /* Eliminamos el margin-bottom */
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sutil sombra en el texto */
+}
+
+/* --- NAVEGACIÓN --- */
+nav {
+    background-color: var(--gris-oscuro); /* Fondo oscuro para el menú */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px var(--sombra-media);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Elementos del menú en línea */
+    justify-content: center; /* Centrar elementos */
+    gap: 30px; /* Espacio entre los elementos del menú */
+}
+
+nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative; /* Para el efecto de subrayado */
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after { /* Efecto de subrayado al pasar el ratón */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--cornalina); /* Color del subrayado */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--cornalina); /* Cambia de color al pasar el ratón */
+}
+
+
+/* --- HERO BANNER (Modificado de .banner) --- */
+.hero-banner {
+    background-color: var(--cornalina);
+    color: var(--blanco);
+    padding: 80px 20px; /* Más padding para que destaque */
+    margin-bottom: 40px;
+    border-radius: 0 0 25px 25px; /* Bordes inferiores más redondeados */
+    box-shadow: 0 6px 12px var(--sombra-media);
+    text-align: center; /* Por defecto centrado para móviles */
+}
+
+.banner-grid {
+    display: flex;
+    flex-direction: column; /* Por defecto apilado en móvil */
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.banner-text h2 {
+    font-size: 44px; /* Título principal aún más grande */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.banner-text p {
+    font-size: 22px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-out; /* Animación de entrada */
+    transition: transform 0.3s ease-out; /* Transición suave para la transformación */
+}
+.banner-image img:hover {
+    transform: scale(1.03); /* Agrandar un 3% al pasar el mouse (un poco menos para una imagen grande) */
+}
+.btn-whatsapp {
+    display: inline-flex; /* Permite alinear el ícono y el texto */
+    align-items: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    background-color: var(--jaspe);
+    color: var(--blanco);
+    padding: 18px 35px; /* Botón más grande */
+    border-radius: 40px; /* Más redondeado */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-whatsapp:hover {
+    background-color: #a02020;
+    transform: translateY(-3px) scale(1.02); /* Más levantamiento y ligero agrandamiento */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+.btn-whatsapp i { /* Estilo para el ícono de WhatsApp */
+    font-size: 1.4em;
+}
+
+
+/* --- SECCIÓN INFO (Ahora "Cómo Funciona") --- */
+.info {
+    padding: 60px 20px;
+    background-color: var(--blanco);
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px var(--sombra-suave);
+    max-width: 900px; /* Ligeramente más ancho */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info h2 {
+    font-size: 34px;
+    margin-bottom: 40px; /* Más espacio */
+    color: var(--verde-esmeralda);
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 30px;
+}
+
+.step-item {
+    background-color: var(--gris-suave);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px var(--sombra-suave);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+}
+
+.step-item i { /* Iconos de los pasos */
+    font-size: 3em;
+    color: var(--cornalina);
+    margin-bottom: 15px;
+}
+
+.step-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--gris-oscuro);
+}
+
+.step-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* --- SECCIÓN PRODUCTOS --- */
+.products-showcase {
+    padding: 60px 20px;
+    background-color: var(--gris-suave);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.products-showcase h2 {
+    font-size: 34px;
+    margin-bottom: 40px;
+    color: var(--verde-esmeralda);
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptativo */
+    gap: 30px;
+}
+
+.product-item {
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--sombra-suave);
+    transition: transform 0.3s ease-out; /* Transición suave para la transformación */
+}
+
+.product-item:hover {
+    transform: scale(1.05); /* Agrandar un 5% al pasar el mouse */
+    box-shadow: 0 8px 20px var(--sombra-media);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 22px;
+    color: var(--gris-oscuro);
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95em;
+    box-shadow: 0 -4px 8px var(--sombra-suave); /* Sombra superior */
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--blanco);
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--cornalina);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+/* Para tablets y pantallas medianas */
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* En fila para pantallas más grandes */
+        justify-content: center; /* Centrar horizontalmente */
+        gap: 20px; /* Espacio entre logo y texto */
+    }
+
+    .logo {
+        margin-bottom: 0; /* No margin-bottom cuando está en fila */
+    }
+
+    .banner-grid {
+        flex-direction: row; /* Poner la imagen al lado del texto */
+        text-align: left; /* Alinear texto a la izquierda */
+    }
+    .banner-text {
+        flex: 1; /* Ocupa el espacio restante */
+        padding-right: 20px;
+    }
+    .banner-image {
+        flex: 0 0 40%; /* La imagen ocupa el 40% del espacio */
+        text-align: right;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 o 3 columnas */
+    }
+}
+
+/* Para escritorios grandes */
+@media (min-width: 1024px) {
+    .banner-grid {
+        padding: 0 40px; /* Más padding interno para el grid */
+    }
+    .banner-text h2 {
+        font-size: 52px; /* Título aún más grande en desktop */
+    }
+    .banner-text p {
+        font-size: 24px;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    }
+}
+
+/* --- ANIMACIONES (CSS Keyframes) --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
