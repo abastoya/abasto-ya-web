@@ -20,6 +20,13 @@
     
     --sombra-fuerte: rgba(0, 0, 0, 0.3);
     --sombra-ligera: rgba(0, 0, 0, 0.15);
+
+    /* --- NUEVO COLOR PARA EL FONDO DEL HEADER (propuesta anterior) --- */
+    --azul-profundo-header: #2c3e50; /* Un azul muy oscuro/gris azulado profesional */
+    /* Aunque en la última conversación se cambió a --color-fondo-primario,
+       se mantiene esta variable para flexibilidad o si se desea un tono diferente.
+       El header usa --color-fondo-primario actualmente. */
+    --fondo-navegacion-oscuro: #363a45; /* Un gris oscuro ligeramente diferente para la nav */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
@@ -45,12 +52,12 @@ body {
 
 /* --- HEADER --- */
 header {
-    background-color: var(--color-fondo-primario); /* CAMBIADO: Header igual al fondo principal (azul oscuro) */
+    background-color: var(--color-fondo-primario); /* Header igual al fondo principal (azul oscuro) */
     color: var(--blanco);
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-    box-shadow: 0 4px 10px var(--sombra-fuerte); /* Sombra más fuerte */
+    box-shadow: 0 4px 10px var(--sombra-fuerte);
 }
 
 .header-content {
@@ -65,7 +72,7 @@ header {
     height: auto;
     margin-bottom: 15px; /* Espacio entre logo y h1 */
     border-radius: 50%;
-    box-shadow: 0 5px 15px var(--sombra-media); /* Sombra más pronunciada */
+    box-shadow: 0 5px 15px var(--sombra-media);
     animation: bounceIn 1s ease-out;
     transition: transform 0.3s ease-out;
 }
@@ -78,9 +85,9 @@ header h1 {
     font-size: 3.8em; /* Título un poco más grande */
     margin-bottom: 0;
     font-weight: 800; /* Más negrita */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra más fuerte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 
-    /* --- TEXTO ANIMADO CON COLORES CORPORATIVOS (SE MANTIENE ASÍ) --- */
+    /* --- TEXTO ANIMADO CON COLORES CORPORATIVOS --- */
     background-image: linear-gradient(
         90deg,
         var(--verde-esmeralda) 0%,
@@ -104,23 +111,23 @@ header h1 {
 
 /* --- NAVEGACIÓN --- */
 nav {
-    background-color: var(--color-fondo-secundario); /* CAMBIADO: Fondo secundario más claro (azul oscuro) */
-    padding: 18px 0; /* Más padding */
-    box-shadow: 0 2px 8px var(--sombra-fuerte); /* Sombra más fuerte */
+    background-color: var(--color-fondo-secundario); /* Fondo secundario más claro (azul oscuro) */
+    padding: 18px 0;
+    box-shadow: 0 2px 8px var(--sombra-fuerte);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 40px; /* Más espacio entre elementos */
+    gap: 40px;
 }
 
 nav ul li a {
     color: var(--blanco);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.2em; /* Texto del menú más grande */
+    font-size: 1.2em;
     padding: 5px 0;
     position: relative;
     transition: color 0.3s ease;
@@ -130,9 +137,9 @@ nav ul li a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px; /* Subrayado más grueso */
-    background: var(--acento-verde-brillante); /* Color de acento para subrayado */
-    bottom: -5px; /* Más abajo */
+    height: 3px;
+    background: var(--acento-verde-brillante);
+    bottom: -5px;
     left: 0;
     transition: width 0.3s ease;
 }
@@ -142,13 +149,13 @@ nav ul li a:hover::after {
 }
 
 nav ul li a:hover {
-    color: var(--acento-verde-brillante); /* Color de acento en hover */
+    color: var(--acento-verde-brillante);
 }
 
 
 /* --- HERO BANNER (Modificado de .banner) --- */
 .hero-banner {
-    /* CAMBIADO: Nuevo fondo degradado con colores llamativos (sin corporativos primarios) */
+    /* Fondo degradado con colores llamativos (sin corporativos primarios) */
     background-image: linear-gradient(
         135deg,
         #2b3a5b 0%, /* Azul oscuro */
@@ -188,7 +195,7 @@ nav ul li a:hover {
     margin-bottom: 25px;
     font-weight: 800;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    text-align: center; /* AÑADIDO/AJUSTADO: Centrar el título h2 */
+    text-align: center;
 }
 
 .banner-text p {
@@ -198,7 +205,7 @@ nav ul li a:hover {
     margin-left: auto;
     margin-right: auto;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    text-align: center; /* AÑADIDO/AJUSTADO: Centrar el párrafo */
+    text-align: center;
 }
 
 .banner-image img {
@@ -215,7 +222,7 @@ nav ul li a:hover {
 }
 
 .btn-whatsapp {
-    background-color: var(--acento-naranja-brillante); /* Color de acento más brillante */
+    background-color: var(--acento-naranja-brillante);
     color: var(--blanco);
     padding: 22px 45px;
     border-radius: 40px;
@@ -227,7 +234,7 @@ nav ul li a:hover {
 }
 
 .btn-whatsapp:hover {
-    background-color: #ff9100; /* Naranja más fuerte al hover */
+    background-color: #ff9100;
     transform: translateY(-5px) scale(1.04);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
@@ -239,7 +246,7 @@ nav ul li a:hover {
 /* --- SECCIÓN INFO (Ahora "Cómo Funciona") --- */
 .info {
     padding: 70px 20px;
-    background-color: var(--color-fondo-terciario); /* Azul muy pálido para el fondo */
+    background-color: var(--fondo-seccion-claro-1); /* Azul muy pálido para el fondo */
     text-align: center;
     margin-bottom: 50px;
     border-radius: 20px;
@@ -253,9 +260,9 @@ nav ul li a:hover {
     /* --- FONDO ANIMADO PARA INFO --- */
     background-image: linear-gradient(
         135deg,
-        var(--color-fondo-terciario) 0%,
+        var(--fondo-seccion-claro-1) 0%,
         rgba(52, 211, 153, 0.1) 50%, /* Tono del verde acento brillante muy sutil */
-        var(--color-fondo-terciario) 100%
+        var(--fondo-seccion-claro-1) 100%
     );
     background-size: 300% 300%;
     animation: infoGradient 28s ease infinite alternate;
@@ -264,7 +271,7 @@ nav ul li a:hover {
 .info h2 {
     font-size: 42px;
     margin-bottom: 35px;
-    color: var(--acento-verde-brillante); /* Color de acento para el título */
+    color: var(--acento-verde-brillante);
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
@@ -289,19 +296,19 @@ nav ul li a:hover {
 
 .step-item i {
     font-size: 4em;
-    color: var(--acento-morado-suave); /* Color de acento para iconos */
+    color: var(--acento-morado-suave);
     margin-bottom: 25px;
 }
 
 .step-item h3 {
     font-size: 26px;
     margin-bottom: 15px;
-    color: var(--color-fondo-secundario); /* Color de texto oscuro para títulos */
+    color: var(--color-fondo-secundario);
 }
 
 .step-item p {
     font-size: 19px;
-    color: #555; /* Color de texto para párrafos */
+    color: #555;
 }
 
 /* --- SECCIÓN PRODUCTOS --- */
@@ -327,7 +334,7 @@ nav ul li a:hover {
 .products-showcase h2 {
     font-size: 42px;
     margin-bottom: 35px;
-    color: var(--acento-naranja-brillante); /* Color de acento para el título */
+    color: var(--acento-naranja-brillante);
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
@@ -339,7 +346,7 @@ nav ul li a:hover {
 }
 
 .product-item {
-    background-color: var(--blanco); /* Blanco para contraste */
+    background-color: var(--blanco);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px var(--sombra-fuerte);
@@ -365,12 +372,12 @@ nav ul li a:hover {
 
 .product-item p {
     font-size: 19px;
-    color: #555; /* Color de texto para párrafos */
+    color: #555;
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--color-fondo-primario); /* Fondo oscuro principal para consistencia */
+    background-color: var(--color-fondo-primario);
     color: var(--blanco);
     text-align: center;
     padding: 40px 20px;
@@ -401,8 +408,6 @@ footer .container {
     transform: translateY(-4px) scale(1.15);
 }
 
-/* --- RESPONSIVE DESIGN (Media Queries) --- */
-
 /* Para tablets y pantallas medianas */
 @media (min-width: 768px) {
     .header-content {
@@ -414,21 +419,22 @@ footer .container {
     .logo {
         margin-bottom: 0;
     }
-     .banner-grid {
+
+    .banner-grid {
         flex-direction: row;
-        /* text-align: left; */ /* ELIMINAR O COMENTAR ESTO SI ESTÁ CAUSANDO ALINEACIÓN IZQUIERDA */
-        align-items: center; /* Asegura la alineación vertical */
-        justify-content: center; /* Asegura la alineación horizontal de los elementos del grid */
+        text-align: center;
+        align-items: center;
+        justify-content: center;
         gap: 50px;
     }
     .banner-text {
         flex: 1;
         padding-right: 30px;
-        text-align: center; /* AÑADIDO: Asegurar que esté centrado también en desktop */
+        text-align: center;
     }
     .banner-image {
         flex: 0 0 45%;
-        text-align: right;
+        text-align: center;
     }
 
     .steps-grid {
@@ -463,7 +469,7 @@ footer .container {
         gap: 50px;
     }
 }
-/* --- NUEVAS REGLAS PARA TELÉFONOS MÓVILES (max-width: 767px) --- */
+/* NUEVAS REGLAS PARA TELÉFONOS MÓVILES (max-width: 767px) */
 @media (max-width: 767px) {
     .container {
         padding: 0 15px; /* Menos padding lateral para aprovechar el espacio en móvil */
