@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
 /* COLORES CORPORATIVOS */
 :root {
     --verde-esmeralda: #009975; /* Color del logo */
@@ -28,8 +30,6 @@
        El header usa --color-fondo-primario actualmente. */
     --fondo-navegacion-oscuro: #363a45; /* Un gris oscuro ligeramente diferente para la nav */
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
 * {
     margin: 0;
