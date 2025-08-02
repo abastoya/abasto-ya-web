@@ -7,28 +7,32 @@
     --jaspe: #B32428; /* Color del logo y detalles */
     --blanco: #ffffff;
 
-    /* --- NUEVOS COLORES BASE PARA FONDOS DE PÁGINA --- */
-    --color-fondo-primario: #1a1a2e; /* Azul oscuro profundo (para body, header, footer) */
+    /* --- NUEVOS COLORES BASE PARA FONDOS DE PÁGINA LLAMATIVOS --- */
+    --color-fondo-primario: #1b263b; /* Azul oscuro profundo (para body, header, footer) */
     --color-fondo-secundario: #16213e; /* Azul oscuro ligeramente más claro (para nav) */
 
-    /* --- NUEVOS COLORES DE SECCIÓN LLAMATIVOS Y FRESCOS --- */
+    /* --- NUEVOS COLORES DE SECCIÓN CLAROS Y VIBRANTES --- */
     --fondo-seccion-claro-1: #e0f2f7; /* Azul muy pálido, casi blanco (para info) */
     --fondo-seccion-claro-2: #fff9e6; /* Amarillo muy pálido (para products-showcase) */
 
     /* --- NUEVOS COLORES DE ACENTO PARA BOTONES, TÍTULOS Y DETALLES (distintos a corporativos) --- */
-    --acento-verde-brillante: #34d399; /* Un verde vibrante (para info h2, hover nav) */
-    --acento-naranja-brillante: #f59e0b; /* Un naranja más brillante (para products-showcase h2, btn-whatsapp) */
-    --acento-morado-suave: #8b5cf6; /* Un morado vibrante (para iconos de pasos) */
+    --acento-verde-brillante: #34d399; /* Un verde vibrante */
+    --acento-naranja-brillante: #f59e0b; /* Un naranja más brillante */
+    --acento-morado-suave: #8b5cf6; /* Un morado vibrante */
+    --acento-amarillo-claro: #ffe082; /* Un amarillo suave */
     
-    --sombra-fuerte: rgba(0, 0, 0, 0.3);
-    --sombra-ligera: rgba(0, 0, 0, 0.15);
+    --sombra-fuerte: rgba(0, 0, 0, 0.4);
+    --sombra-media: rgba(0, 0, 0, 0.25);
+    --sombra-ligera: rgba(0, 0, 0, 0.1);
 
-    /* --- NUEVO COLOR PARA EL FONDO DEL HEADER (propuesta anterior) --- */
-    --azul-profundo-header: #2c3e50; /* Un azul muy oscuro/gris azulado profesional */
-    /* Aunque en la última conversación se cambió a --color-fondo-primario,
-       se mantiene esta variable para flexibilidad o si se desea un tono diferente.
-       El header usa --color-fondo-primario actualmente. */
-    --fondo-navegacion-oscuro: #363a45; /* Un gris oscuro ligeramente diferente para la nav */
+    /* --- VARIABLES NO USADAS DIRECTAMENTE EN EL CÓDIGO FINAL (para referencia) --- */
+    --gris-suave: #f4f4f4; 
+    --gris-oscuro: #333;
+    --sombra-suave: rgba(0, 0, 0, 0.1); 
+    --azul-profundo-header: #2c3e50; 
+    --verde-claro-fondo: #e0f5f0;
+    --cornalina-claro-fondo: #ffe8e0;
+    --fondo-navegacion-oscuro: #363a45; 
 }
 
 * {
@@ -39,9 +43,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-fondo-primario); /* Fondo principal azul oscuro */
-    color: var(--blanco); /* Texto blanco para contrastar */
-    line-height: 1.8; /* Ligeramente más espacio entre líneas para mejor lectura global */
+    background-color: var(--color-fondo-primario);
+    color: var(--blanco);
+    line-height: 1.8;
 }
 
 .container {
@@ -52,12 +56,14 @@ body {
 
 /* --- HEADER --- */
 header {
-    background-color: var(--color-fondo-primario); /* Header igual al fondo principal (azul oscuro) */
+    background-color: transparent; /* CAMBIADO: Fondo transparente para que la lluvia se vea */
     color: var(--blanco);
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-    box-shadow: 0 4px 10px var(--sombra-fuerte);
+    box-shadow: none; /* CAMBIADO: Eliminamos la sombra ya que es transparente */
+    position: relative; /* Para que z-index funcione */
+    z-index: 1; /* Para que esté sobre las frutas */
 }
 
 .header-content {
@@ -68,9 +74,9 @@ header {
 }
 
 .logo {
-    max-width: 160px; /* Un poco más grande el logo circular */
+    max-width: 160px;
     height: auto;
-    margin-bottom: 15px; /* Espacio entre logo y h1 */
+    margin-bottom: 15px;
     border-radius: 50%;
     box-shadow: 0 5px 15px var(--sombra-media);
     animation: bounceIn 1s ease-out;
@@ -82,10 +88,10 @@ header {
 }
 
 header h1 {
-    font-size: 3.8em; /* Título un poco más grande */
+    font-size: 3.8em;
     margin-bottom: 0;
-    font-weight: 800; /* Más negrita */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 
     /* --- TEXTO ANIMADO CON COLORES CORPORATIVOS --- */
     background-image: linear-gradient(
@@ -111,9 +117,11 @@ header h1 {
 
 /* --- NAVEGACIÓN --- */
 nav {
-    background-color: var(--color-fondo-secundario); /* Fondo secundario más claro (azul oscuro) */
+    background-color: var(--color-fondo-secundario-oscuro);
     padding: 18px 0;
-    box-shadow: 0 2px 8px var(--sombra-fuerte);
+    box-shadow: 0 2px 10px var(--sombra-fuerte);
+    position: relative; /* AÑADIDO: Para que z-index funcione */
+    z-index: 2; /* AÑADIDO: Un poco más alto para asegurar que está sobre el header y las frutas */
 }
 
 nav ul {
@@ -155,16 +163,10 @@ nav ul li a:hover {
 
 /* --- HERO BANNER (Modificado de .banner) --- */
 .hero-banner {
-    /* Fondo degradado con colores llamativos (sin corporativos primarios) */
-    background-image: linear-gradient(
-        135deg,
-        #2b3a5b 0%, /* Azul oscuro */
-        #4a5c86 50%, /* Azul grisáceo */
-        #2b3a5b 100% /* Azul oscuro */
-    );
-    background-size: 400% 400%;
-    animation: gradientMoveFaster 20s ease infinite;
-
+    /* Fondo semi-transparente para que la lluvia se vea detrás */
+    background-image: none; /* Eliminamos el degradado anterior si era opaco */
+    background-color: rgba(27, 38, 59, 0.8); /* CAMBIADO: Añadimos un color sólido semi-transparente para que la lluvia se vea detrás */
+    
     color: var(--blanco);
     padding: 90px 20px;
     margin-bottom: 50px;
@@ -173,6 +175,7 @@ nav ul li a:hover {
     text-align: center;
     overflow: hidden;
     position: relative;
+    z-index: 1; /* Para que esté sobre las frutas */
 }
 
 /* --- DEFINICIÓN DE LA ANIMACIÓN MEJORADA --- */
@@ -213,7 +216,7 @@ nav ul li a:hover {
     height: auto;
     border-radius: 0;
     box-shadow: none;
-    animation: fadeIn 1.5s ease-out;
+    animation: fadeIn 1s ease-out;
     transition: transform 0.3s ease-out;
     filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.5));
 }
@@ -246,7 +249,8 @@ nav ul li a:hover {
 /* --- SECCIÓN INFO (Ahora "Cómo Funciona") --- */
 .info {
     padding: 70px 20px;
-    background-color: var(--fondo-seccion-claro-1); /* Azul muy pálido para el fondo */
+    background-color: rgba(224, 242, 247, 0.9); /* CAMBIADO: Fondo semi-transparente para que la lluvia se vea detrás */
+    color: #333; /* CAMBIADO: Texto oscuro para contraste en fondo claro */
     text-align: center;
     margin-bottom: 50px;
     border-radius: 20px;
@@ -256,16 +260,7 @@ nav ul li a:hover {
     margin-right: auto;
     overflow: hidden;
     position: relative;
-
-    /* --- FONDO ANIMADO PARA INFO --- */
-    background-image: linear-gradient(
-        135deg,
-        var(--fondo-seccion-claro-1) 0%,
-        rgba(52, 211, 153, 0.1) 50%, /* Tono del verde acento brillante muy sutil */
-        var(--fondo-seccion-claro-1) 100%
-    );
-    background-size: 300% 300%;
-    animation: infoGradient 28s ease infinite alternate;
+    z-index: 1; /* Para que esté sobre las frutas */
 }
 
 .info h2 {
@@ -283,7 +278,7 @@ nav ul li a:hover {
 }
 
 .step-item {
-    background-color: var(--blanco); /* Blanco para contraste */
+    background-color: var(--blanco);
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 5px 15px var(--sombra-ligera);
@@ -314,21 +309,13 @@ nav ul li a:hover {
 /* --- SECCIÓN PRODUCTOS --- */
 .products-showcase {
     padding: 70px 20px;
-    background-color: var(--color-fondo-cuaternario); /* Amarillo muy pálido para el fondo */
+    background-color: rgba(255, 249, 230, 0.9); /* CAMBIADO: Fondo semi-transparente */
+    color: #333; /* CAMBIADO: Texto oscuro para contraste en fondo claro */
     text-align: center;
     margin-bottom: 50px;
     overflow: hidden;
     position: relative;
-
-    /* --- FONDO ANIMADO PARA PRODUCTOS --- */
-    background-image: linear-gradient(
-        -45deg,
-        var(--color-fondo-cuaternario) 0%,
-        rgba(139, 92, 246, 0.08) 50%, /* Tono de acento morado muy sutil */
-        var(--color-fondo-cuaternario) 100%
-    );
-    background-size: 350% 350%;
-    animation: productsGradient 33s linear infinite;
+    z-index: 1; /* Para que esté sobre las frutas */
 }
 
 .products-showcase h2 {
@@ -354,7 +341,7 @@ nav ul li a:hover {
 
 .product-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    box-shadow: 0 12px 30px var(--sombra-fuerte);
 }
 
 .product-item img {
@@ -383,6 +370,8 @@ footer {
     padding: 40px 20px;
     font-size: 1em;
     box-shadow: 0 -4px 10px var(--sombra-fuerte);
+    position: relative; /* AÑADIDO: Para que z-index funcione */
+    z-index: 1; /* Para que esté sobre las frutas */
 }
 
 footer .container {
@@ -472,7 +461,7 @@ footer .container {
 /* NUEVAS REGLAS PARA TELÉFONOS MÓVILES (max-width: 767px) */
 @media (max-width: 767px) {
     .container {
-        padding: 0 15px; /* Menos padding lateral para aprovechar el espacio en móvil */
+        padding: 0 15px;
     }
 
     /* Header */
@@ -481,23 +470,23 @@ footer .container {
         padding-bottom: 15px;
     }
     .logo {
-        max-width: 120px; /* Logo un poco más pequeño en móvil */
+        max-width: 120px;
         margin-bottom: 5px;
     }
     header h1 {
-        font-size: 2.2em; /* Título h1 más pequeño para móvil */
+        font-size: 2.2em;
     }
 
     /* Navegación */
     nav ul {
-        flex-direction: column; /* Apilar elementos del menú verticalmente */
-        gap: 10px; /* Menos espacio entre ítems de menú apilados */
+        flex-direction: column;
+        gap: 10px;
     }
     nav ul li a {
-        font-size: 1em; /* Texto del menú ajustado */
-        padding: 8px 0; /* Más padding para que sean más fáciles de tocar */
+        font-size: 1em;
+        padding: 8px 0;
     }
-    nav ul li a::after { /* Ajuste de subrayado */
+    nav ul li a::after {
         bottom: -2px;
         height: 2px;
     }
@@ -505,31 +494,31 @@ footer .container {
 
     /* Hero Banner */
     .hero-banner {
-        padding: 50px 15px; /* Menos padding en móvil */
+        padding: 50px 15px;
         margin-bottom: 30px;
-        border-radius: 0 0 20px 20px; /* Bordes más pequeños */
+        border-radius: 0 0 20px 20px;
     }
     .banner-text h2 {
-        font-size: 32px; /* Título h2 más pequeño en móvil */
+        font-size: 32px;
         margin-bottom: 15px;
     }
     .banner-text p {
-        font-size: 16px; /* Párrafo más pequeño en móvil */
+        font-size: 16px;
         margin-bottom: 25px;
     }
     .btn-whatsapp {
-        padding: 12px 25px; /* Botón más pequeño */
+        padding: 12px 25px;
         font-size: 1em;
     }
     .btn-whatsapp i {
         font-size: 1.1em;
     }
     .banner-grid {
-        flex-direction: column; /* Apila el texto y la imagen verticalmente en móvil */
+        flex-direction: column;
         gap: 30px;
     }
     .banner-image {
-        order: -1; /* Opcional: para que la imagen aparezca antes que el texto en móvil */
+        order: -1;
         text-align: center;
     }
 
@@ -539,14 +528,14 @@ footer .container {
         padding: 40px 15px;
         margin-bottom: 30px;
         border-radius: 10px;
-        max-width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 100%;
     }
     .info h2 {
         font-size: 28px;
         margin-bottom: 25px;
     }
     .steps-grid {
-        grid-template-columns: 1fr; /* Asegura una sola columna para los pasos */
+        grid-template-columns: 1fr;
         gap: 25px;
     }
     .step-item {
@@ -575,7 +564,7 @@ footer .container {
         margin-bottom: 25px;
     }
     .product-grid {
-        grid-template-columns: 1fr; /* Asegura una sola columna para los productos */
+        grid-template-columns: 1fr;
         gap: 25px;
     }
     .product-item {
@@ -602,6 +591,36 @@ footer .container {
     }
 }
 /* --- ANIMACIONES (CSS Keyframes) --- */
+
+/* Para las "gotas" de frutas/verduras */
+.falling-item {
+    position: fixed;
+    top: -200px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0; /* Detrás del contenido, pero encima del fondo del body */
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1; 
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 200px)) rotate(1080deg);
+        opacity: 0;
+    }
+}
 
 @keyframes infoGradient {
     0% { background-position: 0% 0%; }
