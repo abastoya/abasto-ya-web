@@ -43,16 +43,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const fruitImages = [
         'css/img/animated/apple.png',
         'css/img/animated/banana.png',
+        // Duplicamos 'broccoli.png' para que aparezca con más frecuencia
+        'css/img/animated/broccoli.png', 
         'css/img/animated/broccoli.png',
+        'css/img/animated/broccoli.png',
+        'css/img/animated/broccoli.png',
+        'css/img/animated/broccoli.png', // AÑADIDO: Brocoli duplicado
         'css/img/animated/carrot.png',
         'css/img/animated/grape.png',
         'css/img/animated/orange.png',
         'css/img/animated/strawberry.png',
-        'css/img/animated/tomato.png'
+        'css/img/animated/tomato.png',
+        // Añadimos 'potatoes.png' y lo duplicamos para que aparezca con más frecuencia
+        'css/img/animated/potatoes.png', // NUEVO
+        'css/img/animated/potatoes.png', // AÑADIDO: Papas duplicadas
+        'css/img/animated/potatoes.png',  // AÑADIDO: Papas triplicadas
+        'css/img/animated/potatoes.png',
     ];
 
-    const numInitialItems = 30; // CANTIDAD CORREGIDA: Más elementos iniciales para mayor densidad
-    const creationInterval = 1000; // INTERVALO CORREGIDO: Crear un nuevo elemento cada 1 segundo
+    const numInitialItems = 30;
+    const creationInterval = 1000;
 
 
     function createFallingItem() {
@@ -60,34 +70,30 @@ document.addEventListener('DOMContentLoaded', function() {
         item.src = fruitImages[Math.floor(Math.random() * fruitImages.length)];
         item.classList.add('falling-item');
 
-        const size = Math.random() * (70 - 40) + 40; // Tamaño aleatorio entre 40px y 70px
+        const size = Math.random() * (70 - 40) + 40;
         item.style.width = size + 'px';
-        item.style.height = 'auto'; // Mantener la proporción
+        item.style.height = 'auto';
 
-        const startPositionX = Math.random() * window.innerWidth; // Posición horizontal aleatoria
+        const startPositionX = Math.random() * window.innerWidth;
         item.style.left = startPositionX + 'px';
 
-        const animationDuration = Math.random() * (25 - 15) + 15; // Duración aleatoria entre 15s y 25s
+        const animationDuration = Math.random() * (25 - 15) + 15;
         item.style.animationDuration = animationDuration + 's';
 
-        const animationDelay = Math.random() * 8; // Retraso aleatorio para que no caigan a la vez
+        const animationDelay = Math.random() * 8;
         item.style.animationDelay = animationDelay + 's';
 
         document.body.appendChild(item);
 
-        // Eliminar el elemento y crear uno nuevo cuando la animación termina
-        // Esto crea un bucle "infinito" de caída para cada elemento individual
         item.addEventListener('animationend', () => {
             item.remove();
-            createFallingItem(); // Crea un nuevo elemento una vez que uno desaparece
+            createFallingItem();
         });
     }
 
-    // Crear un número inicial de elementos para que la pantalla no esté vacía al cargar
     for (let i = 0; i < numInitialItems; i++) {
         createFallingItem();
     }
 
-    // Activar la creación periódica de elementos para mantener la densidad de la "lluvia".
     setInterval(createFallingItem, creationInterval); 
 });

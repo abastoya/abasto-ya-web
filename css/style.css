@@ -2,32 +2,32 @@
 
 /* COLORES CORPORATIVOS */
 :root {
-    --verde-esmeralda: #009975; /* Color del logo */
-    --cornalina: #F05A28; /* Color del logo y detalles */
-    --jaspe: #B32428; /* Color del logo y detalles */
+    --verde-esmeralda: #009975; /* Color del logo (para texto animado) */
+    --cornalina: #F05A28; /* Color del logo y detalles (para texto animado) */
+    --jaspe: #B32428; /* Color del logo y detalles (para texto animado) */
     --blanco: #ffffff;
 
-    /* --- NUEVOS COLORES BASE PARA FONDOS DE PÁGINA LLAMATIVOS --- */
-    --color-fondo-primario: #1b263b; /* Azul oscuro profundo (para body, header, footer) */
-    --color-fondo-secundario: #16213e; /* Azul oscuro ligeramente más claro (para nav) */
-
-    /* --- NUEVOS COLORES DE SECCIÓN CLAROS Y VIBRANTES --- */
-    --fondo-seccion-claro-1: #e0f2f7; /* Azul muy pálido, casi blanco (para info) */
-    --fondo-seccion-claro-2: #fff9e6; /* Amarillo muy pálido (para products-showcase) */
+    /* --- NUEVOS COLORES BASE PARA FONDOS DE PÁGINA LLAMATIVOS Y CLAROS --- */
+    --color-fondo-primario: #d4edda; /* Verde muy claro (tono pastel, base del body) */
+    --color-fondo-secundario-oscuro: #5cb85c; /* Verde medio brillante (para nav y contraste) */
+    
+    /* --- NUEVOS COLORES DE SECCIÓN CLAROS Y VIBRANTES (en esta nueva paleta) --- */
+    --fondo-seccion-claro-1: #e9f5ed; /* Verde aún más claro para alternar */
+    --fondo-seccion-claro-2: #c6e9d6; /* Verde claro un poco más saturado para alternar */
 
     /* --- NUEVOS COLORES DE ACENTO PARA BOTONES, TÍTULOS Y DETALLES (distintos a corporativos) --- */
-    --acento-verde-brillante: #34d399; /* Un verde vibrante */
-    --acento-naranja-brillante: #f59e0b; /* Un naranja más brillante */
-    --acento-morado-suave: #8b5cf6; /* Un morado vibrante */
-    --acento-amarillo-claro: #ffe082; /* Un amarillo suave */
-    
+    --acento-verde-brillante: #28a745; /* Un verde más fuerte (para info h2, hover nav) */
+    --acento-naranja-brillante: #fd7e14; /* Un naranja vivo (para products-showcase h2, btn-whatsapp) */
+    --acento-morado-suave: #6f42c1; /* Un morado vibrante (para iconos de pasos) */
+    --acento-amarillo-claro: #ffc107; /* Un amarillo brillante */
+
     --sombra-fuerte: rgba(0, 0, 0, 0.4);
     --sombra-media: rgba(0, 0, 0, 0.25);
     --sombra-ligera: rgba(0, 0, 0, 0.1);
 
     /* --- VARIABLES NO USADAS DIRECTAMENTE EN EL CÓDIGO FINAL (para referencia) --- */
     --gris-suave: #f4f4f4; 
-    --gris-oscuro: #333;
+    --gris-oscuro: #333; 
     --sombra-suave: rgba(0, 0, 0, 0.1); 
     --azul-profundo-header: #2c3e50; 
     --verde-claro-fondo: #e0f5f0;
@@ -43,8 +43,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    /* CAMBIADO: Fondo principal verde claro para la página */
     background-color: var(--color-fondo-primario);
-    color: var(--blanco);
+    /* CAMBIADO: Texto oscuro para los fondos claros */
+    color: var(--gris-oscuro); 
     line-height: 1.8;
 }
 
@@ -56,14 +58,15 @@ body {
 
 /* --- HEADER --- */
 header {
-    background-color: transparent; /* CAMBIADO: Fondo transparente para que la lluvia se vea */
-    color: var(--blanco);
+    /* CAMBIADO: Header igual al fondo principal para uniformidad, manteniendo la transparencia */
+    background-color: transparent; 
+    color: var(--gris-oscuro); /* CAMBIADO: Texto oscuro para el header si el fondo es claro */
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-    box-shadow: none; /* CAMBIADO: Eliminamos la sombra ya que es transparente */
-    position: relative; /* Para que z-index funcione */
-    z-index: 1; /* Para que esté sobre las frutas */
+    box-shadow: none; 
+    position: relative;
+    z-index: 1; 
 }
 
 .header-content {
@@ -91,16 +94,16 @@ header h1 {
     font-size: 3.8em;
     margin-bottom: 0;
     font-weight: 800;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* CAMBIADO: Sombra más sutil y solo para dar un ligero relieve y que no oculte la animación */
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra suave oscura */
 
-    /* --- TEXTO ANIMADO CON COLORES CORPORATIVOS --- */
+    /* CAMBIADO: Vuelve a una combinación vibrante que resalta bien en fondos claros */
     background-image: linear-gradient(
         90deg,
-        var(--verde-esmeralda) 0%,
-        var(--cornalina) 25%,
-        var(--jaspe) 50%,
-        var(--cornalina) 75%,
-        var(--verde-esmeralda) 100%
+        var(--acento-naranja-brillante) 0%,   /* Naranja brillante */
+        var(--acento-morado-suave) 50%,        /* Morado vibrante */
+        var(--acento-naranja-brillante) 100%  /* Naranja brillante */
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -117,11 +120,12 @@ header h1 {
 
 /* --- NAVEGACIÓN --- */
 nav {
-    background-color: var(--color-fondo-secundario-oscuro);
+    /* CAMBIADO: Fondo verde medio brillante para la navegación */
+    background-color: var(--color-fondo-secundario-oscuro); 
     padding: 18px 0;
     box-shadow: 0 2px 10px var(--sombra-fuerte);
-    position: relative; /* AÑADIDO: Para que z-index funcione */
-    z-index: 2; /* AÑADIDO: Un poco más alto para asegurar que está sobre el header y las frutas */
+    position: relative; 
+    z-index: 2; 
 }
 
 nav ul {
@@ -132,7 +136,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: var(--blanco);
+    color: var(--blanco); /* CAMBIADO: Texto blanco para que contraste con el verde de la nav */
     text-decoration: none;
     font-weight: 600;
     font-size: 1.2em;
@@ -146,7 +150,7 @@ nav ul li a::after {
     position: absolute;
     width: 0;
     height: 3px;
-    background: var(--acento-verde-brillante);
+    background: var(--acento-naranja-brillante); /* CAMBIADO: Subrayado naranja brillante */
     bottom: -5px;
     left: 0;
     transition: width 0.3s ease;
@@ -157,17 +161,19 @@ nav ul li a:hover::after {
 }
 
 nav ul li a:hover {
-    color: var(--acento-verde-brillante);
+    color: var(--acento-naranja-brillante); /* CAMBIADO: Color de hover naranja brillante */
 }
 
 
 /* --- HERO BANNER (Modificado de .banner) --- */
 .hero-banner {
-    /* Fondo semi-transparente para que la lluvia se vea detrás */
-    background-image: none; /* Eliminamos el degradado anterior si era opaco */
-    background-color: rgba(27, 38, 59, 0.8); /* CAMBIADO: Añadimos un color sólido semi-transparente para que la lluvia se vea detrás */
-    
-    color: var(--blanco);
+    /* CAMBIADO: Fondo degradado fresco y llamativo con verdes y amarillos */
+    background-color: rgba(212, 237, 218, 0.7); /* Tono verde claro del body con 70% de opacidad */
+    background-image: none; /* Asegurar que no hay imagen de fondo */
+    background-size: auto;   /* Eliminar tamaño de fondo si no hay imagen */
+    animation: none;        /* Eliminar animación de fondo si no hay imagen */
+
+    color: var(--gris-oscuro); /* CAMBIADO: Texto oscuro para que contraste con el fondo semi-transparente claro */
     padding: 90px 20px;
     margin-bottom: 50px;
     border-radius: 0 0 30px 30px;
@@ -175,7 +181,18 @@ nav ul li a:hover {
     text-align: center;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Para que esté sobre las frutas */
+    z-index: 1;
+
+    /* CAMBIADO: Texto oscuro para el hero banner */
+    color: var(--gris-oscuro); 
+    padding: 90px 20px;
+    margin-bottom: 50px;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 8px 20px var(--sombra-fuerte);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 /* --- DEFINICIÓN DE LA ANIMACIÓN MEJORADA --- */
@@ -197,7 +214,8 @@ nav ul li a:hover {
     font-size: 52px;
     margin-bottom: 25px;
     font-weight: 800;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    /* CAMBIADO: Sombra de texto para que destaque en fondo claro */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
     text-align: center;
 }
 
@@ -207,7 +225,8 @@ nav ul li a:hover {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    /* CAMBIADO: Sombra de texto para que destaque en fondo claro */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
     text-align: center;
 }
 
@@ -225,7 +244,7 @@ nav ul li a:hover {
 }
 
 .btn-whatsapp {
-    background-color: var(--acento-naranja-brillante);
+    background-color: var(--acento-naranja-brillante); 
     color: var(--blanco);
     padding: 22px 45px;
     border-radius: 40px;
@@ -249,8 +268,9 @@ nav ul li a:hover {
 /* --- SECCIÓN INFO (Ahora "Cómo Funciona") --- */
 .info {
     padding: 70px 20px;
-    background-color: rgba(224, 242, 247, 0.9); /* CAMBIADO: Fondo semi-transparente para que la lluvia se vea detrás */
-    color: #333; /* CAMBIADO: Texto oscuro para contraste en fondo claro */
+    background-color: var(--fondo-seccion-claro-1); /* Azul muy pálido para el fondo */
+    /* CAMBIADO: Texto oscuro para contraste en fondo claro */
+    color: var(--gris-oscuro); 
     text-align: center;
     margin-bottom: 50px;
     border-radius: 20px;
@@ -260,7 +280,7 @@ nav ul li a:hover {
     margin-right: auto;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Para que esté sobre las frutas */
+    z-index: 1;
 }
 
 .info h2 {
@@ -278,7 +298,7 @@ nav ul li a:hover {
 }
 
 .step-item {
-    background-color: var(--blanco);
+    background-color: var(--blanco); /* Blanco para contraste */
     padding: 35px;
     border-radius: 15px;
     box-shadow: 0 5px 15px var(--sombra-ligera);
@@ -298,24 +318,25 @@ nav ul li a:hover {
 .step-item h3 {
     font-size: 26px;
     margin-bottom: 15px;
-    color: var(--color-fondo-secundario);
+    color: var(--color-fondo-secundario-oscuro); /* CAMBIADO: Color de texto oscuro para títulos */
 }
 
 .step-item p {
     font-size: 19px;
-    color: #555;
+    color: var(--gris-oscuro); 
 }
 
 /* --- SECCIÓN PRODUCTOS --- */
 .products-showcase {
     padding: 70px 20px;
-    background-color: rgba(255, 249, 230, 0.9); /* CAMBIADO: Fondo semi-transparente */
-    color: #333; /* CAMBIADO: Texto oscuro para contraste en fondo claro */
+    background-color: var(--fondo-seccion-claro-2); /* Amarillo muy pálido para el fondo */
+    /* CAMBIADO: Texto oscuro para contraste en fondo claro */
+    color: var(--gris-oscuro); 
     text-align: center;
     margin-bottom: 50px;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Para que esté sobre las frutas */
+    z-index: 1;
 }
 
 .products-showcase h2 {
@@ -333,7 +354,7 @@ nav ul li a:hover {
 }
 
 .product-item {
-    background-color: var(--blanco);
+    background-color: var(--blanco); /* Blanco para contraste */
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px var(--sombra-fuerte);
@@ -354,24 +375,24 @@ nav ul li a:hover {
 .product-item h3 {
     font-size: 26px;
     margin-bottom: 15px;
-    color: var(--color-fondo-secundario);
+    color: var(--color-fondo-secundario-oscuro); /* CAMBIADO: Color de texto oscuro para títulos */
 }
 
 .product-item p {
     font-size: 19px;
-    color: #555;
+    color: var(--gris-oscuro); 
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--color-fondo-primario);
+    background-color: var(--color-fondo-secundario-oscuro); /* CAMBIADO: Fondo azul medio oscuro para footer */
     color: var(--blanco);
     text-align: center;
     padding: 40px 20px;
     font-size: 1em;
     box-shadow: 0 -4px 10px var(--sombra-fuerte);
-    position: relative; /* AÑADIDO: Para que z-index funcione */
-    z-index: 1; /* Para que esté sobre las frutas */
+    position: relative;
+    z-index: 1;
 }
 
 footer .container {
@@ -393,7 +414,7 @@ footer .container {
 }
 
 .social-links a:hover {
-    color: var(--acento-verde-brillante);
+    color: var(--acento-naranja-brillante); /* CAMBIADO: Acento naranja en hover */
     transform: translateY(-4px) scale(1.15);
 }
 
