@@ -77,7 +77,7 @@ header {
 }
 
 .logo {
-    max-width: 160px;
+    max-width: 200px;
     height: auto;
     margin-bottom: 15px;
     border-radius: 50%;
@@ -231,7 +231,7 @@ nav ul li a:hover {
 }
 
 .banner-image img {
-    max-width: 100%;
+    max-width: 200%;
     height: auto;
     border-radius: 0;
     box-shadow: none;
