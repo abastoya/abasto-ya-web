@@ -449,7 +449,11 @@ footer .container {
         flex: 0 0 45%;
         text-align: center;
     }
-
+    .banner-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    }
     .steps-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 40px;
