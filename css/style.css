@@ -231,13 +231,16 @@ nav ul li a:hover {
 }
 
 .banner-image img {
-    max-width: 200%;
+    width: 100%;
+    max-width: 400px;
     height: auto;
     border-radius: 0;
     box-shadow: none;
     animation: fadeIn 1s ease-out;
     transition: transform 0.3s ease-out;
     filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.5));
+    display: block;
+    margin: 0 auto;
 }
 .banner-image img:hover {
     transform: scale(1.03);
